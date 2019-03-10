@@ -8,10 +8,8 @@ const bcrypt = require('bcrypt-nodejs');
 const knex = require('knex')({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: '',
-        database: 'smartbrain'
+        connectionString: process.env.DATABASE_URL,
+        ssl: true,
     }
 });
 const register = require('./controllers/register');
